@@ -1,26 +1,40 @@
-class NegociacaoController {
+class ProgramadoresController {
 
-    private _inputData: HTMLInputElement;
-    private _inputQuantidade: HTMLInputElement;
-    private _inputValor: HTMLInputElement;
-    private _negociacoes = new Negociacoes();
+    private _inputNome: HTMLInputElement;
+    private _inputSobreNome: HTMLInputElement;
+    private _inputDataDeNascimento: HTMLInputElement;
+    private _inputIdade: HTMLInputElement;
+    private _inputLagFavorita: HTMLInputElement;
+    private _inputObservacoes: HTMLInputElement;
+    private _programadores = new Programadores();
+    private _programadoresView = new ProgramadoresView('#programadoresView');
 
     constructor(){
-        this._inputData = <HTMLInputElement>document.querySelector('#data');
-        this._inputQuantidade = <HTMLInputElement>document.querySelector('#idade');
-        this._inputValor = <HTMLInputElement>document.querySelector('#valor');
+        
+        this._inputNome = <HTMLInputElement>document.querySelector('#nome');
+        this._inputSobreNome = <HTMLInputElement>document.querySelector('#sobrenome');
+        this._inputDataDeNascimento = <HTMLInputElement>document.querySelector('#data');
+        this._inputIdade = <HTMLInputElement>document.querySelector('#idade');
+        this._inputLagFavorita = <HTMLInputElement>document.querySelector('#langFavorita');
+        this._inputObservacoes = <HTMLInputElement>document.querySelector('#obs');
+        this._programadoresView.update(this._programadores);
     }
 
     adiciona(event: Event){
 
         event.preventDefault();
 
-        const negociacao = new Negociacao(
-            new Date(this._inputData.value.replace(/-/g, ',')),
-            parseInt(this._inputQuantidade.value),
-            parseFloat(this._inputValor.value)
+        const programador = new Programador(
+            this._inputNome.textContent,
+            this._inputSobreNome.textContent,
+            new Date(this._inputDataDeNascimento.value.replace(/-/g, ',')),
+            parseInt(this._inputIdade.value),
+            this._inputLagFavorita.textContent,
+            this._inputObservacoes.textContent
+            
         );
 
-        console.log(negociacao);
+        this._programadores.adiciona(programador);
+        this._programadoresView.update(this._programadores);
     }
 }

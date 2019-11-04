@@ -1,0 +1,22 @@
+{
+  "name": "teste-front-angular",
+  "version": "1.0.0",
+  "description": "Lista de programadores utilizando Angular + Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielDeveloperOne/teste-front-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielDeveloperOne/teste-front-angular/issues"
+  },
+  "homepage": "https://github.com/GabrielDeveloperOne/teste-front-angular#readme",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}
